@@ -1,13 +1,12 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: ['main']
+  release:
+    types: [published]
 
 jobs:
 
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Check out the repo
@@ -18,12 +17,6 @@ jobs:
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-#     - name: Extract metadata (tags, labels) for Docker
-#       id: meta
-#       uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-#       with:
-#         images: zymoresearch/bcl-convert
 
     - name: Set up Docker Buildx
       id: buildx
