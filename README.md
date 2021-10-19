@@ -1,5 +1,5 @@
 # docker-bcl-convert
-Docker container for bcl-convert, an Illumina demultiplexing program
+Docker container for bcl-convert (v3.9.3), an Illumina demultiplexing program.
 ## Usage
 ### Installation
 ```
