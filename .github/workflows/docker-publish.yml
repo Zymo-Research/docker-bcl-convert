@@ -19,6 +19,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: push README to Dockerhub
       uses: christian-korneck/update-container-description-action@v1
+      env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
       with:
         destination_container_repo: zymoresearch/bcl-convert
         provider: dockerhub
@@ -36,7 +39,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          zymoresearch/bcl-convert:3.9.3,zymoresearch/bcl-convert:latest
+          zymoresearch/bcl-convert:3.9.3, zymoresearch/bcl-convert:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
