@@ -17,7 +17,13 @@ jobs:
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+    - name: push README to Dockerhub
+      uses: christian-korneck/update-container-description-action@v1
+      with:
+        destination_container_repo: zymoresearch/bcl-convert
+        provider: dockerhub
+        readme_file: 'README.md'
+        
     - name: Set up Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v1
@@ -29,7 +35,8 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: zymoresearch/bcl-convert:3.9.3,zymoresearch/bcl-convert:latest
+        tags: |
+          zymoresearch/bcl-convert:3.9.3,zymoresearch/bcl-convert:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
