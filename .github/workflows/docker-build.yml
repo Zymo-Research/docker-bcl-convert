@@ -19,13 +19,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
     
-    - name: Sync README to Docker Hub Description
-      uses: peter-evans/dockerhub-description@v3
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        repository: zymoresearch/bcl-convert
-        readme-filepath: ./README.md
+    # - name: Sync README to Docker Hub Description
+    #   uses: peter-evans/dockerhub-description@v3
+    #   with:
+    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #     repository: zymoresearch/bcl-convert
+    #     readme-filepath: ./README.md
 #     - name: push README to Dockerhub
 #       uses: christian-korneck/update-container-description-action@v1
 #       env:
