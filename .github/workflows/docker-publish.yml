@@ -38,7 +38,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: zymoresearch/bcl-convert:latest,zymoresearch/bcl-convert:3.10.5
+        tags: zymoresearch/bcl-convert:latest,zymoresearch/bcl-convert:4.2.7
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
