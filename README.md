@@ -1,10 +1,9 @@
 # docker-bcl-convert
-Docker container for bcl-convert (v3.10.5), an Illumina demultiplexing program.
+
+Docker container for bcl-convert, an Illumina demultiplexing program.
+
 ## Usage
-### Installation
-```
-docker pull zymoresearch/bcl-convert
-```
+
 ### Run demultiplexing
 ```
 docker run -d --name bcl-convert\
@@ -17,4 +16,5 @@ docker run -d --name bcl-convert\
              --force \
              --no-lane-splitting false
 ```
+
 For more information on running bcl-convert, please refer to Illumina's [official documentation](https://support.illumina.com/sequencing/sequencing_software/bcl-convert/documentation.html).
