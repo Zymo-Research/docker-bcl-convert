@@ -2,7 +2,7 @@
 FROM ubuntu:24.04
 
 #LABEL about the custom image
-LABEL maintainer="Yifei Wang, Mingda Jin"
+LABEL maintainer="Mingda Jin"
 LABEL description="This is custom Docker Image for bcl-convert, an Illumina demultiplexing tool."
 
 # get the package
