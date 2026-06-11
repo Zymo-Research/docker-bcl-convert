@@ -1,20 +1,25 @@
 # docker-bcl-convert
 
-Docker container for bcl-convert, an Illumina demultiplexing program.
+Docker image for [bcl-convert](https://support.illumina.com/sequencing/sequencing_software/bcl-convert.html), Illumina's tool for converting BCL files to FASTQ.
 
 ## Usage
 
-### Run demultiplexing
-```
-docker run -d --name bcl-convert\
-         -v /home/ubuntu/data/input:/mnt/run \
-         -v /home/ubuntu/data/output/Data/Intensities/BaseCalls/Alignment_1/:/mnt/output \
-         bcl-convert \
-             --bcl-input-directory /mnt/run \
-             --output-directory /mnt/output/ \
-             --strict-mode true \
-             --force \
-             --no-lane-splitting false
+### Check version
+
+```bash
+docker run --rm zymoresearch/bcl-convert:latest --version
 ```
 
-For more information on running bcl-convert, please refer to Illumina's [official documentation](https://support.illumina.com/sequencing/sequencing_software/bcl-convert/documentation.html).
+### Run demultiplexing
+
+```bash
+docker run --rm \
+  -v /path/to/run:/mnt/run \
+  -v /path/to/output:/mnt/output \
+  zymoresearch/bcl-convert:latest \
+    --bcl-input-directory /mnt/run \
+    --output-directory /mnt/output \
+    --sample-sheet /mnt/run/SampleSheet.csv
+```
+
+For all available options, see Illumina's [official documentation](https://support.illumina.com/sequencing/sequencing_software/bcl-convert/documentation.html).
