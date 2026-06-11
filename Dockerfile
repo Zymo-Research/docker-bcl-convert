@@ -6,7 +6,7 @@ LABEL maintainer="Mingda Jin"
 LABEL description="This is custom Docker Image for bcl-convert, an Illumina demultiplexing tool."
 
 # get the package
-COPY bcl-convert-4.3.13-2.el7.x86_64.rpm bcl-convert.rpm
+COPY bcl-convert-4.4.4-2.el7.x86_64.rpm bcl-convert.rpm
 
 # repress tzdata prompt
 ENV DEBIAN_FRONTEND=noninteractive
